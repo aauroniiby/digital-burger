@@ -4,6 +4,7 @@ import DigitalBurger from './containers/DigitalBurger/DigitalBurger'
 import Checkout from './containers/Checkout/Checkout'
 import { Route, Switch } from 'react-router-dom'
 import Orders from './containers/Orders/Orders'
+import Menus from './containers/Menus/Menus'
 
 class App extends Component {
 
@@ -14,6 +15,7 @@ class App extends Component {
           <Switch>
             <Route path="/checkout" component={Checkout} />
             <Route path="/orders" component={Orders} />
+            <Route path="/menus" component={Menus} />
             <Route path="/" component={DigitalBurger} />
           </Switch>
         </Layout>

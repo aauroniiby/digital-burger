@@ -1,14 +1,18 @@
 import * as actionTypes from '../actions/actionTypes'
 
 const initialState = {
-    orders:[],
-    loading: false,
-    purchased: false,
-    categories: ["YOOOO"]
+    categories: [],
+    loading: false
 }
 
 const reducer = (state = initialState, action) => {
     switch(action.type){
+        case actionTypes.FETCH_CATEGORIES_SUCCESS:
+            return {
+                ...state,
+                categories: state.categories.concat(action.categories),
+                loading: false
+            }
         case actionTypes.PURCHASE_BURGER_SUCCESS:
             const newOrder = {
                 ...action.orderData,

@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import Auxiliary from '../Auxiliary'
 import classes from './Layout.css'
 import Toolbar from '../../components/Navigation/Toolbar/Toolbar'
+import Sidebar from '../../components/Navigation/Sidebar/Sidebar'
 import SideDrawer from '../../components/Navigation/SideDrawer/SideDrawer'
 class Layout extends Component {
     state = {
@@ -12,19 +13,21 @@ class Layout extends Component {
         this.setState({ showSideDrawer: false })
     }
     sideDrawerToggleHandler = () => {
-        this.setState( (prevState) => {
+        this.setState((prevState) => {
             return { showSideDrawer: !prevState.showSideDrawer }
         })
     }
     render() {
         return (
             <Auxiliary>
-                <Toolbar drawerToggleClicked = {this.sideDrawerToggleHandler}/>
+                <Toolbar drawerToggleClicked={this.sideDrawerToggleHandler} />
+                <Sidebar/>
                 <SideDrawer open={this.state.showSideDrawer}
                     closed={this.sideDrawerHandler} />
                 <main className={classes.Content}>
                     {this.props.children}
                 </main>
+
             </Auxiliary>
         )
     }
